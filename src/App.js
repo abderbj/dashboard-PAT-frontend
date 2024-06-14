@@ -1,5 +1,8 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
+import StatisticCard from './components/StatisticCard';
+import Chart from './components/Chart';
+import EventsCalendar from './components/EventsCalendar' ;
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -7,8 +10,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Error from "./components/Error";
-import StatisticCard from "./components/StatisticCard";
-import Chart from "./components/Chart";
+
+
 
 const theme = createTheme({
   typography: {
@@ -188,18 +191,24 @@ function App() {
     },
   };
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
-    // <Chart props={props} />
-    // <StatisticCard/>
+    <div className="App">
+        {/* <Chart props={props} /> */}
+        <EventsCalendar /> 
+        {/* <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Router>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </Router>
+        </ThemeProvider> */}
+        {/* <Chart props={props} /> */}
+        <StatisticCard/>
+    </div>
+    
+    
   );
 }
 
