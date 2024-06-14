@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import StatisticCard from './components/StatisticCard';
 import Chart from './components/Chart';
-import EventsCalendar from './components/EventsCalendar' ;
+import EventsCalendarPage from './pages/Calendar';
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -190,22 +190,58 @@ function App() {
       sixty: Math.floor(Math.random() * 101),
     },
   };
+  const events = [
+    {
+      id: 0,
+      image: 'https://via.placeholder.com/50', // Replace with your image URL
+      title: 'Design Conference',
+      date: 'Today 07:19 AM',
+      address: '56 Davion Mission Suite 157',
+      country: 'Meaghanberg',
+    },
+    {
+      id: 1,
+      image: 'https://via.placeholder.com/50', // Replace with your image URL
+      title: 'Weekend Festival',
+      date: '16 October 2019 at 5.00 PM',
+      address: '853 Moore Flats Suite 158',
+      country: 'Sweden',
+    },
+    {
+      id: 2,
+      image: 'https://via.placeholder.com/50', // Replace with your image URL
+      title: 'Glastonbury Festival',
+      date: '20-22 October 2019 at 8.00 PM',
+      address: '646 Walter Road Apt. 571',
+      country: 'Turks and Caicos Islands',
+    },
+    {
+      id: 3,
+      image: 'https://via.placeholder.com/50', // Replace with your image URL
+      title: 'Ultra Europe 2019',
+      date: '25 October 2019 at 10.00 PM',
+      address: '506 Satterfield Tunnel Apt. 963',
+      country: 'San Marino',
+    },
+  ];
   return (
     <div className="App">
         {/* <Chart props={props} /> */}
-        <EventsCalendar /> 
-        {/* <ThemeProvider theme={theme}>
+        {/* <EventsCalendar />  */}
+        {/* <EventsCalendarPage events={events} /> */}
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Router>
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="*" element={<Error />} />
+              <Route path="/calendar" element={<EventsCalendarPage events={events}/>} />
             </Routes>
           </Router>
-        </ThemeProvider> */}
+        </ThemeProvider>
         {/* <Chart props={props} /> */}
-        <StatisticCard/>
+        {/* <StatisticCard/> */}
     </div>
     
     

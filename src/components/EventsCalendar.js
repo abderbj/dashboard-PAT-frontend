@@ -50,7 +50,7 @@ const EventsCalendar = () => {
       fontSize: '10px',
       padding: '8px 7px',
       fontWeight: 600,
-      backgroundColor: `${backgroundColor}34`, // 14 is the alpha value for 20% opacity
+      backgroundColor: `${backgroundColor}34`, // 34 is the opacity value
       borderLeft: `2px solid ${backgroundColor}`,
       color: backgroundColor,
     };
