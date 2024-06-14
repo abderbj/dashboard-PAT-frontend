@@ -57,7 +57,7 @@ function Error() {
           alt="Error"
           style={{ width: "300px", height: "230px", marginBottom: "65px" }}
         />{" "}
-        <Typography variant="h5" component="h1">
+        <Typography variant="h5" component="h1" style={{ fontWeight: "bold" }}>
           Erreur
         </Typography>
         <SubmitButton

@@ -1,12 +1,13 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Error from "./components/Error";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Error from "./pages/Error";
+import AddProducts from "./pages/AddProducts";
 import StatisticCard from "./components/StatisticCard";
 import Chart from "./components/Chart";
 
@@ -195,6 +196,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<Error />} />
+          <Route path="/addProduct" element={<AddProducts />} />
         </Routes>
       </Router>
     </ThemeProvider>
