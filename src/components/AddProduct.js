@@ -255,7 +255,7 @@ function AddProduct() {
             display: "flex",
             margin: "auto",
             textTransform: "none",
-            marginTop: "30px",
+            marginTop: "70px",
             // marginBottom: "15px",
             borderRadius: "8px",
           }}
