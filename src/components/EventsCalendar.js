@@ -40,7 +40,7 @@ const events = [
 
 const colors = ['#e99151', '#51e9a1', '#a151e9', '#e951a1', '#51a1e9'];
 
-const EventsCalendar = () => {
+const EventsCalendar = ({events}) => {
   const eventStyleGetter = (event) => {
     const backgroundColor = colors[event.id % colors.length];
     const style = {
