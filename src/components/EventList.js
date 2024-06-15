@@ -1,38 +1,14 @@
-// import React from 'react';
-// import EventCard from './EventCard';
-// import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// // import './EventList.css';
-
-// const EventList = ({ events }) => {
-//   return (
-//     <div className="event-list-container">
-//       <Typography variant="h4">Calendrier</Typography>
-//       <Button variant="contained" color="primary" className="add-action-button">
-//         + Ajouter une Action
-//       </Button>
-//       <Typography variant="h5">Action à venir</Typography>
-//       <div className="event-list">
-//         {events.map(event => (
-//           <EventCard key={event.id} event={event} />
-//         ))}
-//       </div>
-//       <Button variant="outlined" className="view-more-button">
-//         Voir plus
-//       </Button>
-//     </div>
-//   );
-// };
-
-// export default EventList;
-
-import React from 'react';
+import React , {useState} from 'react';
 import EventCard from './EventCard';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 const EventList = ({ events }) => {
+  const [visibleEvents, setVisibleEvents] = useState(4);
+  const voirPlusHandler=()=>{
+    setVisibleEvents(visibleEvents + 4)
+  }
   return (
     <Box 
       sx={{
@@ -73,13 +49,12 @@ const EventList = ({ events }) => {
           boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
         }}
       >
-        {events.map(event => (
+        {events.slice(0, visibleEvents).map(event => (
           <EventCard key={event.id} event={event} />
         ))}
       </Box>
       <Button
         variant="text"
-        
         sx={{
           marginTop: 2,
           padding: '10px 20px',
@@ -89,6 +64,7 @@ const EventList = ({ events }) => {
           textTransform: 'none',  
           fontFamily: 'Nunito Sans, sans-serif',
         }}
+        onClick={voirPlusHandler}
       >
         Voir plus
       </Button>
