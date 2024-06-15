@@ -1,8 +1,5 @@
 // import logo from "./logo.svg";
 import './App.css';
-import StatisticCard from './components/StatisticCard';
-import Chart from './components/Chart';
-import EventsCalendarPage from './pages/Calendar';
 import AddActionForm from './components/AddActionForm';
 import ArticlesPage from './pages/Articles';
 import React from "react";
@@ -279,29 +276,10 @@ function App() {
               path="/calendar"
               element={<EventsCalendarPage events={events} />}
             />
+            <Route path="/articles" element={<ArticlesPage />} />
           </Routes>
         </Router>
       </ThemeProvider>
-      {/* <Chart props={props} /> */}
-      {/* <StatisticCard/> */}
-        {/* <Chart props={props} /> */}
-        {/* <EventsCalendar />  */}
-        {/* <EventsCalendarPage events={events} /> */}
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Router>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="*" element={<Error />} />
-              <Route path="/calendar" element={<EventsCalendarPage events={events}/>} />
-              <Route path="/calendar/addEvent" element={<AddActionForm />} />
-              <Route path="/articles" element={<ArticlesPage />} />
-            </Routes>
-          </Router>
-        </ThemeProvider>
-        {/* <Chart props={props} /> */}
-        {/* <StatisticCard/> */}
     </div>
   );
 }
