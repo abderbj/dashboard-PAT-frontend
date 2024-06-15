@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from "./logo.svg";
 import './App.css';
 import StatisticCard from './components/StatisticCard';
 import Chart from './components/Chart';
@@ -9,11 +9,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Error from "./components/Error";
-
-
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Error from "./pages/Error";
+import AddProducts from "./pages/AddProducts";
+import EventsCalendarPage from './pages/Calendar';
+import StatisticCard from "./components/StatisticCard";
+import Chart from "./components/Chart";
 
 const theme = createTheme({
   typography: {
@@ -262,6 +264,26 @@ function App() {
   ];
   return (
     <div className="App">
+      {/* <Chart props={props} /> */}
+      {/* <EventsCalendar />  */}
+      {/* <EventsCalendarPage events={events} /> */}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="*" element={<Error />} />
+            <Route path="/addProduct" element={<AddProducts />} />
+            <Route
+              path="/calendar"
+              element={<EventsCalendarPage events={events} />}
+            />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+      {/* <Chart props={props} /> */}
+      {/* <StatisticCard/> */}
         {/* <Chart props={props} /> */}
         {/* <EventsCalendar />  */}
         {/* <EventsCalendarPage events={events} /> */}
@@ -281,8 +303,6 @@ function App() {
         {/* <Chart props={props} /> */}
         {/* <StatisticCard/> */}
     </div>
-    
-    
   );
 }
 

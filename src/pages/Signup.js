@@ -15,17 +15,17 @@ const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: theme.spacing(0),
+  padding: theme.spacing(1),
   paddingTop: theme.spacing(5),
   paddingBottom: theme.spacing(5),
   marginTop: theme.spacing(2),
-  width: "65vh",
-  height: "78vh",
+  marginLeft: theme.spacing(2),
+  marginRight: theme.spacing(2),
+  width: "69vh",
+  height: "fit-content",
   backgroundColor: "white",
   borderRadius: "15px",
-  //   boxShadow: theme.shadows[5],
 }));
-
 const Form = styled("form")(({ theme }) => ({
   width: "85%",
   marginTop: theme.spacing(1),
@@ -78,11 +78,18 @@ function Signup() {
         <Typography
           component="h1"
           variant="h5"
-          style={{ marginBottom: "10px" }}
+          style={{ marginBottom: "2px", fontWeight: "bold" }}
         >
           Créer un compte
         </Typography>
-        <Typography style={{ marginBottom: "15px" }}>
+        <Typography
+          style={{
+            display: "flex",
+            textAlign: "center",
+            margin: "10px",
+            marginBottom: "15px",
+          }}
+        >
           Créer un compte pour continuer
         </Typography>
         <Form>
@@ -153,6 +160,9 @@ function Signup() {
           <FormControlLabel
             control={<StyledCheckbox value="confidentiality" />}
             label="J'ai lu et compris la Politique de confidentialité"
+            onChange={(e) => {
+              console.log(e.target.checked);
+            }}
           />
           <SubmitButton
             type="submit"
