@@ -13,6 +13,7 @@ import AddProducts from "./pages/AddProducts";
 import EventsCalendarPage from './pages/Calendar';
 import StatisticCard from "./components/StatisticCard";
 import Chart from "./components/Chart";
+import ToDoPage from "./pages/ToDo";
 
 const theme = createTheme({
   typography: {
@@ -259,6 +260,43 @@ function App() {
       allDay: true,
     },
   ];
+  const toDoTasks = [
+    {id:0,
+     isChecked:false,
+     isFavourite:false,
+     title:'Meeting with CEO'
+    },
+    {id:1,
+      isChecked:false,
+      isFavourite:false,
+      title:'Pick up kids from school'
+     },
+     {id:2,
+      isChecked:false,
+      isFavourite:false,
+      title:'Shopping with Brother'
+     },
+     {id:3,
+      isChecked:false,
+      isFavourite:false,
+      title:"Going to Dia's School"
+     },
+     {id:4,
+      isChecked:false,
+      isFavourite:false,
+      title:'Check design files'
+     },
+     {id:5,
+      isChecked:false,
+      isFavourite:false,
+      title:'Update file'
+     },
+     {id:6,
+      isChecked:false,
+      isFavourite:false,
+      title:'Review with HR'
+     }
+  ]
   return (
     <div className="App">
       {/* <Chart props={props} /> */}
@@ -277,6 +315,7 @@ function App() {
               element={<EventsCalendarPage events={events} />}
             />
             <Route path="/articles" element={<ArticlesPage />} />
+            <Route path="/todo" element={<ToDoPage toDoTasks={toDoTasks} />} />
           </Routes>
         </Router>
       </ThemeProvider>
