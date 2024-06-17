@@ -14,6 +14,7 @@ import EventsCalendarPage from './pages/Calendar';
 import StatisticCard from "./components/StatisticCard";
 import Chart from "./components/Chart";
 import ToDoPage from "./pages/ToDo";
+import Dashboard from './DashboardLayout/Dashboard';
 
 const theme = createTheme({
   typography: {
@@ -297,6 +298,7 @@ function App() {
       title:'Review with HR'
      }
   ]
+  
   return (
     <div className="App">
       {/* <Chart props={props} /> */}
@@ -305,6 +307,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Router>
+        <Dashboard>
+        
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
@@ -314,9 +318,10 @@ function App() {
               path="/calendar"
               element={<EventsCalendarPage events={events} />}
             />
-            <Route path="/articles" element={<ArticlesPage />} />
             <Route path="/todo" element={<ToDoPage toDoTasks={toDoTasks} />} />
+            <Route path="/articles" element={<ArticlesPage/>} />
           </Routes>
+        </Dashboard>
         </Router>
       </ThemeProvider>
     </div>
