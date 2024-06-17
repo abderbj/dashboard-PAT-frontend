@@ -307,8 +307,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Router>
-        <Dashboard>
-        
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
@@ -321,7 +319,6 @@ function App() {
             <Route path="/todo" element={<ToDoPage toDoTasks={toDoTasks} />} />
             <Route path="/articles" element={<ArticlesPage/>} />
           </Routes>
-        </Dashboard>
         </Router>
       </ThemeProvider>
     </div>
