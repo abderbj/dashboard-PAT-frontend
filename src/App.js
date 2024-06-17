@@ -15,6 +15,7 @@ import StatisticCard from "./components/StatisticCard";
 import Chart from "./components/Chart";
 import ToDoPage from "./pages/ToDo";
 import Dashboard from './DashboardLayout/Dashboard';
+import Animals from './pages/Animals';
 
 const theme = createTheme({
   typography: {
@@ -298,6 +299,69 @@ function App() {
       title:'Review with HR'
      }
   ]
+
+  const animals = [
+    {id:0,
+      name:'PETER',
+      isMale:false,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:1,
+      name:'ZION',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:2,
+      name:'ARISTO',
+      isMale:false,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:3,
+      name:'YUKI',
+      isMale:false,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:4,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:5,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:6,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:7,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:8,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:9,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:10,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:11,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+  ]
   
   return (
     <div className="App">
@@ -318,6 +382,7 @@ function App() {
             />
             <Route path="/todo" element={<ToDoPage toDoTasks={toDoTasks} />} />
             <Route path="/articles" element={<ArticlesPage/>} />
+            <Route path="/animals" element={<Animals animals={animals}/>} />
           </Routes>
         </Router>
       </ThemeProvider>
