@@ -3,9 +3,10 @@ import { Box, Typography, Button } from '@mui/material';
 import ToDoTask from '../components/ToDoTask';
 
 function ToDo({ toDoTasks }) {
+
     const [selectedTask, setSelectedTask] = useState(-1);
     const [tasks, setTasks] = useState(toDoTasks);
-    console.log(tasks)
+
     const deleteTask = (id) => {
         const newTasks = tasks.filter((task) => task.id !== id);
         setTasks(newTasks);
@@ -27,7 +28,7 @@ function ToDo({ toDoTasks }) {
     };
 
     return (
-        <>
+        <Box sx={{ backgroundColor: '#F5F6FA' }}>
             <Box display="flex" justifyContent="space-between" padding={3}>
                 <Typography variant="h4" fontWeight="600">
                     To-Do Liste
@@ -36,7 +37,8 @@ function ToDo({ toDoTasks }) {
                     Ajouter une tache
                 </Button>
             </Box>
-            <Box display={'flex'} flexDirection={'column'} gap={3} sx={{ backgroundColor: '#F5F6FA' }}>
+
+            <Box display={'flex'} flexDirection={'column'} gap={3}>
                 {tasks.map((task) => (
                     <ToDoTask
                         key={task.id}
@@ -54,7 +56,7 @@ function ToDo({ toDoTasks }) {
                     />
                 ))}
             </Box>
-        </>
+        </Box>
     );
 }
 
