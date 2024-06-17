@@ -6,20 +6,23 @@ import StarRounded from '@mui/icons-material/StarRounded';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const ToDoTask = ({ taskData, onSelect, onDelete, onToggleChecked, onToggleFavorite }) => {
-    const selectTaskHandler = () => {
+    const handleSelect = (e) => {
+        e.stopPropagation();
         onSelect(taskData.id);
     };
 
-    const deleteTaskHandler = () => {
+    const handleDelete = (e) => {
+        e.stopPropagation();
         onDelete(taskData.id);
     };
 
-    const toggleFavoriteHandler = () => {
-        onToggleFavorite(taskData.id);
+    const handleToggleChecked = () => {
+        onToggleChecked(taskData.id);
     };
 
-    const toggleCheckedHandler = () => {
-        onToggleChecked(taskData.id);
+    const handleToggleFavorite = (e) => {
+        e.stopPropagation();
+        onToggleFavorite(taskData.id);
     };
 
     return (
@@ -32,38 +35,41 @@ const ToDoTask = ({ taskData, onSelect, onDelete, onToggleChecked, onToggleFavor
                 border: taskData.isSelected ? 'none' : '1px solid #D5D5D5',
                 backgroundColor: taskData.isSelected ? '#019ADD' : '#FBFCFF',
             }}
-            onClick={selectTaskHandler}
+            onClick={handleSelect}
         >
             <Box display={'flex'} alignItems="center">
                 <Checkbox
                     sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
                     checked={taskData.isChecked}
-                    onChange={toggleCheckedHandler}
+                    onChange={handleToggleChecked}
                 />
                 <p style={{ margin: '0 8px' }}>{taskData.title}</p>
             </Box>
 
             <Box display={'flex'}>
-                <IconButton aria-label="delete" onClick={deleteTaskHandler}>
-
-                    {taskData.isSelected ? <DeleteIcon/> : <HighlightOffIcon/>}
+                <IconButton aria-label="delete" onClick={handleDelete}>
+                    {taskData.isSelected ? <DeleteIcon /> : <HighlightOffIcon />}
                 </IconButton>
-                {taskData.isSelected ? null :<Checkbox
-                    sx={{
-                        color: '#B3B3B3',
-                        '&.Mui-checked': {
-                            color: '#FFD56D',
-                            '& .MuiSvgIcon-root': { fontSize: 26 },
-                        },
-                        '& .MuiSvgIcon-root': { fontSize: 26 },
-                    }}
-                    icon={<StarBorderRounded />}
-                    checkedIcon={<StarRounded />}
-                    checked={taskData.isFavourite}
-                    onChange={toggleFavoriteHandler}
-                />}
 
-
+                {/* Conditionally render favorite Checkbox */}
+                {!taskData.isSelected && (
+                    <div onClick={handleToggleFavorite}>
+                        <Checkbox
+                            sx={{
+                                color: '#B3B3B3',
+                                '&.Mui-checked': {
+                                    color: '#FFD56D',
+                                    '& .MuiSvgIcon-root': { fontSize: 26 },
+                                },
+                                '& .MuiSvgIcon-root': { fontSize: 26 },
+                            }}
+                            icon={<StarBorderRounded />}
+                            checkedIcon={<StarRounded />}
+                            checked={taskData.isFavourite}
+                            onChange={() => {}}
+                        />
+                    </div>
+                )}
             </Box>
         </Box>
     );
