@@ -1,5 +1,3 @@
-// import logo from "./logo.svg";
-import './App.css';
 import AddActionForm from './components/AddActionForm';
 import ArticlesPage from './pages/Articles';
 import React from "react";
