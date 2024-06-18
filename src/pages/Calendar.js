@@ -7,7 +7,7 @@ function EventsCalendarPage({ events }){
     return (
         <div className='EventsCalendarPage' >
             <EventList events={events} className='EventListComponent'/>
-            <EventsCalendar className='EventsCalendarComponent' />
+            <EventsCalendar events={events} className='EventsCalendarComponent' />
             
         </div>
     );

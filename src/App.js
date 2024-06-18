@@ -3,6 +3,8 @@ import './App.css';
 import StatisticCard from './components/StatisticCard';
 import Chart from './components/Chart';
 import EventsCalendarPage from './pages/Calendar';
+import AddActionForm from './components/AddActionForm';
+import ArticlesPage from './pages/Articles';
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -198,6 +200,9 @@ function App() {
       date: 'Today 07:19 AM',
       address: '56 Davion Mission Suite 157',
       country: 'Meaghanberg',
+      start: new Date(2024, 6, 3, 10, 0),
+      end: new Date(2024, 6, 4, 12, 0),
+      allDay: true,
     },
     {
       id: 1,
@@ -206,6 +211,9 @@ function App() {
       date: '16 October 2019 at 5.00 PM',
       address: '853 Moore Flats Suite 158',
       country: 'Sweden',
+      start: new Date(2024, 6, 16, 10, 0),
+      end: new Date(2024, 6, 18, 12, 0),
+      allDay: true,
     },
     {
       id: 2,
@@ -214,6 +222,9 @@ function App() {
       date: '20-22 October 2019 at 8.00 PM',
       address: '646 Walter Road Apt. 571',
       country: 'Turks and Caicos Islands',
+      start: new Date(2024, 6, 20, 11, 0),
+      end: new Date(2024, 6, 23, 12, 0),
+      allDay: true,
     },
     {
       id: 3,
@@ -222,6 +233,9 @@ function App() {
       date: '25 October 2019 at 10.00 PM',
       address: '506 Satterfield Tunnel Apt. 963',
       country: 'San Marino',
+      start: new Date(2024, 6, 24, 10, 0),
+      end: new Date(2024, 6, 26, 12, 0),
+      allDay: true,
     },
     {
       id: 4,
@@ -230,6 +244,9 @@ function App() {
       date: '25 October 2019 at 10.00 PM',
       address: '506 Satterfield Tunnel Apt. 963',
       country: 'San Marino',
+      start: new Date(2024, 6, 27, 10, 0),
+      end: new Date(2024, 6, 28, 12, 0),
+      allDay: true,
     },
     {
       id: 5,
@@ -238,6 +255,9 @@ function App() {
       date: '25 Octoberdfgdf 2019 at 10.00 PM',
       address: '506 Satdfgterfield Tunnel Apt. 963',
       country: 'San Mdfgdfarino',
+      start: new Date(2024, 6, 28, 10, 0),
+      end: new Date(2024, 6, 29, 12, 0),
+      allDay: true,
     },
   ];
   return (
@@ -253,6 +273,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="*" element={<Error />} />
               <Route path="/calendar" element={<EventsCalendarPage events={events}/>} />
+              <Route path="/calendar/addEvent" element={<AddActionForm />} />
+              <Route path="/articles" element={<ArticlesPage />} />
             </Routes>
           </Router>
         </ThemeProvider>
