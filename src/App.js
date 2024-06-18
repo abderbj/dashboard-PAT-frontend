@@ -1,19 +1,21 @@
-import logo from './logo.svg';
+// import logo from "./logo.svg";
 import './App.css';
-import StatisticCard from './components/StatisticCard';
-import Chart from './components/Chart';
-import EventsCalendarPage from './pages/Calendar';
 import AddActionForm from './components/AddActionForm';
 import ArticlesPage from './pages/Articles';
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Error from "./components/Error";
-
-
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Error from "./pages/Error";
+import AddProducts from "./pages/AddProducts";
+import EventsCalendarPage from './pages/Calendar';
+import StatisticCard from "./components/StatisticCard";
+import Chart from "./components/Chart";
+import ToDoPage from "./pages/ToDo";
+import Dashboard from './DashboardLayout/Dashboard';
+import Animals from './pages/Animals';
 
 const theme = createTheme({
   typography: {
@@ -260,29 +262,131 @@ function App() {
       allDay: true,
     },
   ];
+  const toDoTasks = [
+    {id:0,
+     isChecked:false,
+     isFavourite:false,
+     title:'Meeting with CEO'
+    },
+    {id:1,
+      isChecked:false,
+      isFavourite:false,
+      title:'Pick up kids from school'
+     },
+     {id:2,
+      isChecked:false,
+      isFavourite:false,
+      title:'Shopping with Brother'
+     },
+     {id:3,
+      isChecked:false,
+      isFavourite:false,
+      title:"Going to Dia's School"
+     },
+     {id:4,
+      isChecked:false,
+      isFavourite:false,
+      title:'Check design files'
+     },
+     {id:5,
+      isChecked:false,
+      isFavourite:false,
+      title:'Update file'
+     },
+     {id:6,
+      isChecked:false,
+      isFavourite:false,
+      title:'Review with HR'
+     }
+  ]
+
+  const animals = [
+    {id:0,
+      name:'PETER',
+      isMale:false,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:1,
+      name:'ZION',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:2,
+      name:'ARISTO',
+      isMale:false,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:3,
+      name:'YUKI',
+      isMale:false,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:4,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:5,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:6,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:7,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:8,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:9,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:10,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+    {id:11,
+      name:'KAYEN',
+      isMale:true,
+      image:'/src/assets/animal-default.png'
+    },
+  ]
+  
   return (
     <div className="App">
-        {/* <Chart props={props} /> */}
-        {/* <EventsCalendar />  */}
-        {/* <EventsCalendarPage events={events} /> */}
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Router>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="*" element={<Error />} />
-              <Route path="/calendar" element={<EventsCalendarPage events={events}/>} />
-              <Route path="/calendar/addEvent" element={<AddActionForm />} />
-              <Route path="/articles" element={<ArticlesPage />} />
-            </Routes>
-          </Router>
-        </ThemeProvider>
-        {/* <Chart props={props} /> */}
-        {/* <StatisticCard/> */}
+      {/* <Chart props={props} /> */}
+      {/* <EventsCalendar />  */}
+      {/* <EventsCalendarPage events={events} /> */}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="*" element={<Error />} />
+            <Route path="/addProduct" element={<AddProducts />} />
+            <Route
+              path="/calendar"
+              element={<EventsCalendarPage events={events} />}
+            />
+            <Route path="/todo" element={<ToDoPage toDoTasks={toDoTasks} />} />
+            <Route path="/articles" element={<ArticlesPage/>} />
+            <Route path="/animals" element={<Animals animals={animals}/>} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
     </div>
-    
-    
   );
 }
 

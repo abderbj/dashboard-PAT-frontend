@@ -15,15 +15,16 @@ const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: theme.spacing(0),
+  padding: theme.spacing(1),
   paddingTop: theme.spacing(7),
   paddingBottom: theme.spacing(7),
   marginTop: theme.spacing(2),
-  width: "65vh",
-  height: "70vh",
+  marginLeft: theme.spacing(2),
+  marginRight: theme.spacing(2),
+  width: "fit-content",
+  height: "fit-content",
   backgroundColor: "white",
   borderRadius: "15px",
-  //   boxShadow: theme.shadows[5],
 }));
 
 const Form = styled("form")(({ theme }) => ({
@@ -74,17 +75,38 @@ function Login() {
   const navigateTo2 = () => {
     navigate(`#`);
   };
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [rememberMe, setRememberMe] = React.useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the form from being submitted in the traditional way
+
+    // Here you can do whatever you need to do with the form data
+    console.log(`Email: ${email}`);
+    console.log(`Password: ${password}`);
+    console.log(`Remember me: ${rememberMe}`);
+  };
   return (
     <RootContainer>
       <Background />
       <FormContainer>
-        <Typography variant="h5" component="h1" style={{ marginBottom: "8px" }}>
+        <Typography variant="h5" component="h1" style={{ fontWeight: "bold" }}>
           Connexion au compte
         </Typography>
-        <Typography style={{ marginBottom: "25px" }}>
+        <Typography
+          style={{
+            display: "flex",
+            textAlign: "center",
+            margin: "10px",
+            marginBottom: "25px",
+            fontSize: "0.9rem",
+          }}
+        >
           Veuillez entrer votre email et votre mot de passe pour continuer
         </Typography>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <label htmlFor="email">Adresse e-mail</label>
           <TextField
             variant="outlined"
@@ -106,6 +128,8 @@ function Login() {
                 marginBottom: "25px",
               },
             }}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Box
             display="flex"
@@ -144,10 +168,15 @@ function Login() {
                 marginBottom: "0px",
               },
             }}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <FormControlLabel
             control={<StyledCheckbox value="remember" />}
             label="Se souvenir de moi"
+            onChange={(e) => {
+              setRememberMe(e.target.checked);
+            }}
           />
           <SubmitButton
             type="submit"
